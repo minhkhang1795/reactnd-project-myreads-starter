@@ -8,6 +8,7 @@ class BookItem extends Component {
 
   render() {
     const { book } = this.props;
+
     return (
       <li>
         <div className="book">
@@ -15,7 +16,7 @@ class BookItem extends Component {
             <div className="book-cover" style={{
               width: 128,
               height: 193,
-              backgroundImage: `url(${book.imageLinks.thumbnail})`
+              backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ''})`
             }}/>
             <div className="book-shelf-changer">
               <select value={book.shelf ? book.shelf : "none"} onChange={(e) => this.changeShelf(book, e.target.value)}>

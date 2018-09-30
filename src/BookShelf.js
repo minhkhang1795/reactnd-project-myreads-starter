@@ -4,12 +4,14 @@ import BookItem from "./BookItem";
 class BookShelf extends Component {
 
   render() {
+    const {shelfName, books} = this.props;
+
     return (
       <div className="bookshelf">
-          <h2 className="bookshelf-title">{this.props.shelfName}</h2>
+          <h2 className="bookshelf-title">{shelfName}</h2>
           <div className="bookshelf-books">
             <ol className="books-grid">
-              {this.props.books && this.props.books.map((book) =>
+              {books && books.constructor === Array && books.map((book) =>
                 <BookItem key={book.id} book={book} onChangeShelf={(book, value) => {
                   this.props.onChangeShelf(book, value)
                 }}/>
