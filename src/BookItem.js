@@ -16,7 +16,7 @@ class BookItem extends Component {
             <div className="book-cover" style={{
               width: 128,
               height: 193,
-              backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ''})`
+              backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail.replace("http","https") : ''})`
             }}/>
             <div className="book-shelf-changer">
               <select value={book.shelf ? book.shelf : "none"} onChange={(e) => this.changeShelf(book, e.target.value)}>
